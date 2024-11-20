@@ -11,12 +11,14 @@ describe("ageClassification: age classification for all ranges", () => {
         expect(ageClassification(-1)).toBeNull();
     });
 
-    test("ageClassification: age < 0 = null", () => {
-        expect(ageClassification(0)).toBeNull();
-    });
+    test("ageClassification: age <= 0 = null", () => {
+        expect(ageClassification(0)).toBeNull();      //тут есть несовпадение с данными в ДЗ( возможно специально ошибка) 
+    });                                               //добавила в условие самой функции "<=0" иначе необходимо менять метод теста 
+                                                    // и тогда не получим требуемый результат.
+                                                       // по логике выдает неправильное значение вмето -0- получаем Дитинство
 
     test("ageClassification: age < 24 = 'Дитинство'", () => {
-        expect(ageClassification(0)).toBe('Дитинство');
+        expect(ageClassification(1)).toBe('Дитинство');
     });
 
     test("ageClassification: age < 24 = 'Дитинство'", () => {
